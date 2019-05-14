@@ -128,4 +128,4 @@ client.on('message', (receivedMessage) => {
 // Get your bot's secret token from:
 // https://discordapp.com/developers/applications/
 // Click on your application -> Bot -> Token -> "Click to Reveal Token"
-client.login(BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);
