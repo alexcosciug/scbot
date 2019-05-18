@@ -113,10 +113,13 @@ client.on('message', (receivedMessage) => {
         
     }
     if ((receivedMessage.content.toLowerCase().includes("dream"))||(receivedMessage.content.toLowerCase().includes("police"))){
-      receivedMessage.channel.send("https://cdn.discordapp.com/attachments/483806359440064534/550750029963460608/From_this_day_on_I_will_be_a_police_officer.png");
+      receivedMessage.channel.send({files:["https://cdn.discordapp.com/attachments/483806359440064534/550750029963460608/From_this_day_on_I_will_be_a_police_officer.png"]});
     }
     if ((receivedMessage.content.toLowerCase().includes("h.sing"))){
       receivedMessage.channel.send("wake up in the morning ~♪\nthere's a brand new day ahead~♫\nthe sun is bright and the clouds smile down ~♩\nand all your friends are dead ~♬ ");
+    }
+    if ((receivedMessage.content.toLowerCase().includes("h.help"))){
+      receivedMessage.channel.send(" Available commands: \n- sing \n\n Reaction words: \nfriend, friendos, friends\n police, dream\n moustache, brother, koumei\n music, guitar\n heart, traitor\n zero ");
     }
     
 
