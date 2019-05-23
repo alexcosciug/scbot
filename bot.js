@@ -98,7 +98,7 @@ client.on('message', (receivedMessage) => {
       }
         
     }
-    if ((receivedMessage.content.toLowerCase().includes(" friend "))||(receivedMessage.content.toLowerCase().includes("friends"))||(receivedMessage.content.toLowerCase().includes("friendos"))) {
+    if ((receivedMessage.content.toLowerCase().includes("friend "))||(receivedMessage.content.toLowerCase().includes("friends"))||(receivedMessage.content.toLowerCase().includes("friendos"))) {
       let val = getRandomValue(4);
       switch (val){
         case 1:receivedMessage.channel.send({files:["https://cdn.discordapp.com/attachments/483806359440064534/550750071952637962/The_squad.png"]});
