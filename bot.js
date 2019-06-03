@@ -61,7 +61,7 @@ client.on('message', (receivedMessage) => {
     
     if ((receivedMessage.content.toLowerCase().includes("cat"))) { 
         let guild = client.guilds.get(receivedMessage.guild.id);
-         USER_ID = 'neontomcat#9907';
+         USER_ID = '370713901362315264';
 
        if (!(guild.member(USER_ID))) {
          // there isn't a GuildMember with that ID
