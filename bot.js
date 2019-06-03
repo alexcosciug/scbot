@@ -57,6 +57,29 @@ client.on('message', (receivedMessage) => {
       //  receivedMessage.channel.send("You called?");
        
      //}
+  
+    
+    if ((receivedMessage.content.toLowerCase().includes("cat"))) { 
+        let guild = client.guilds.get(receivedMessage.guild.id);
+         USER_ID = 'neontomcat#9907';
+
+       if (!guild.member(USER_ID)) {
+         // there isn't a GuildMember with that ID
+         let val = getRandomValue(4);
+      
+        switch (val){
+          default:receivedMessage.channel.send("Miss me with that gay shit");
+              break;
+          case 2:receivedMessage.channel.send("Booly free zone.");
+            break;
+          case 3:receivedMessage.channel.send("Cat found her floofy cloud."); 
+            break;
+          case 4:receivedMessage.channel.send("Hewwo from the other side.");  
+            break;
+        }
+       }
+        
+    }
     if ((receivedMessage.content.toLowerCase().includes("koumei"))||(receivedMessage.content.toLowerCase().includes("moustache"))||(receivedMessage.content.toLowerCase().includes("stache"))||(receivedMessage.content.toLowerCase().includes("brother"))||(receivedMessage.content.toLowerCase().includes("👨"))){
         let val = getRandomValue(4);
       
@@ -65,7 +88,7 @@ client.on('message', (receivedMessage) => {
               break;
           case 2:receivedMessage.channel.send("I think you might need this",{files:["https://ae01.alicdn.com/kf/HTB1LHojXIfrK1RkSnb4q6xHRFXaU/Wholesale-3pcs-set-Razor-Disposable-Shaving-Razor-Handle-Stainless-Steel-Blade-Razor-For-Man-Face-Care.jpg_640x640.jpg"]});
             break;
-          case 3:receivedMessage.channel.send("https://cdn.discordapp.com/attachments/483806359440064534/550750029963460608/From_this_day_on_I_will_be_a_police_officer.png"); 
+          case 3:receivedMessage.channel.send({files:["https://cdn.discordapp.com/attachments/483806359440064534/550750029963460608/From_this_day_on_I_will_be_a_police_officer.png"]}); 
             break;
           case 4:receivedMessage.channel.send("Oh no.");  
             break;
