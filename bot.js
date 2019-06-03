@@ -63,8 +63,7 @@ client.on('message', (receivedMessage) => {
         let guild = client.guilds.get(receivedMessage.guild.id);
          USER_ID = 'neontomcat#9907';
 
-       if (guild.member(USER_ID)) {//}
-       else {
+       if (!(guild.member(USER_ID))) {
          // there isn't a GuildMember with that ID
          let val = getRandomValue(4);
       
