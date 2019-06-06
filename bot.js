@@ -3,7 +3,9 @@ const client = new Discord.Client()
 var Long = require("long");
 //const config = require('./package.json');
 //const watch = require('./watch.json');
-
+let charaSet = ["Furuya Rei","Gin", "Vodka", "Bourbon", "Akai Shuichi", "Scotch", "Hiro"];
+let actionSet= ["have a tropical vacation", "fuck in a tent"];
+let settingSet=["Medieval Japan AU", "Post-Bo destruction"];
 
 const getDefaultChannel = (guild) => {
   // get "original" default channel
@@ -33,6 +35,25 @@ client.on('ready', () => {
    
 })
 
+function getPrompt(){
+  if((charaSet.length!=0) && (actionSet.length!=0) &&(settingSet.length!=0)){
+      return settingSet[getRandomValue(settingSet.length)-1]+": "+ charaset[getRandomValue(charaSet.length)-1]+" and  "+charaset[getRandomValue(charaSet.length)-1]+ " "+ action[getRandomValue(actionSet.length)-1];
+  }
+  return "At least one prompt section is empty";
+}
+
+function addChara(chara){
+    charaSet.push(chara);
+}
+
+function addAction(act){
+      actionSet.push(act);
+}
+
+function addSetting(setting){
+     settingSet.push(setting);
+}
+
 function getRandomValue(max){
   return 1+Math.floor(Math.random() * Math.floor(max));
 }
@@ -57,8 +78,32 @@ client.on('message', (receivedMessage) => {
       //  receivedMessage.channel.send("You called?");
        
      //}
-  
-    
+    if ((receivedMessage.content.toLowerCase().startsWith("h."))) { 
+        var args = message.content.substring("h.".length).split(".");
+        switch(args[0]){
+          case "prompt":
+            receivedMessage.channel.send(getPrompt());
+            if(args.length>1){
+              switch(args[1]){
+                case "add": 
+                  receivedMessage.channel.send("What would you like to add? \nCharacter \nAction \nSetting \n");
+                  break;
+                case "clear":
+                  receivedMessage.channel.send("What would you like to add? \nCharacter \nAction \nSetting \nAll \n");
+                  break;
+              }
+            }
+            break;
+          case "sing": receivedMessage.channel.send("wake up in the morning ~♪\nthere's a brand new day ahead~♫\nthe sun is bright and the clouds smile down ~♩\nand all your friends are dead ~♬ ");
+            break;
+        
+          case "info": receivedMessage.channel.send(" Available commands: \n- sing \n\n Reaction words: \nfriend, friendos, friends\n police, dream\n moustache, brother, koumei\n music, guitar\n heart, traitor\n zero \n TBC");
+            break;
+            
+          default: break;
+        }
+    }
+     
     if ((receivedMessage.content.toLowerCase().includes("cat"))) { 
         let guild = client.guilds.get(receivedMessage.guild.id);
          USER_ID = '370713901362315264';
@@ -138,12 +183,7 @@ client.on('message', (receivedMessage) => {
     if ((receivedMessage.content.toLowerCase().includes("dream"))||(receivedMessage.content.toLowerCase().includes("police"))){
       receivedMessage.channel.send({files:["https://cdn.discordapp.com/attachments/483806359440064534/550750029963460608/From_this_day_on_I_will_be_a_police_officer.png"]});
     }
-    if ((receivedMessage.content.toLowerCase().includes("h.sing"))){
-      receivedMessage.channel.send("wake up in the morning ~♪\nthere's a brand new day ahead~♫\nthe sun is bright and the clouds smile down ~♩\nand all your friends are dead ~♬ ");
-    }
-    if ((receivedMessage.content.toLowerCase().includes("h.help"))){
-      receivedMessage.channel.send(" Available commands: \n- sing \n\n Reaction words: \nfriend, friendos, friends\n police, dream\n moustache, brother, koumei\n music, guitar\n heart, traitor\n zero ");
-    }
+    
     
 
   })
