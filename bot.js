@@ -96,7 +96,7 @@ client.on('message', (receivedMessage) => {
                             errors: ['time'],
                           })
                           .then((collected) => {
-                            AddChara(response.content);
+                            AddChara(collected.first().content);
                           })
                           .catch(() => {
                           // Do something with error 
@@ -110,7 +110,7 @@ client.on('message', (receivedMessage) => {
                             errors: ['time'],
                           })
                           .then((collected) => {
-                            addAction(response.content);
+                            addAction(collected.first().content);
                           })
                           .catch(() => {
                           // Do something with error 
@@ -124,7 +124,7 @@ client.on('message', (receivedMessage) => {
                             errors: ['time'],
                           })
                           .then((collected) => {
-                              addSetting(response.content);
+                              addSetting(collected.first().content);
                           })
                           .catch(() => {
                           // Do something with error 
