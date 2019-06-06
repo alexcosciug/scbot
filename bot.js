@@ -37,7 +37,7 @@ client.on('ready', () => {
 
 function getPrompt(){
   if((charaSet.length!=0) && (actionSet.length!=0) &&(settingSet.length!=0)){
-      return settingSet[getRandomValue(settingSet.length)-1]+": "+ charaset[getRandomValue(charaSet.length)-1]+" and  "+charaset[getRandomValue(charaSet.length)-1]+ " "+ action[getRandomValue(actionSet.length)-1];
+      return settingSet[getRandomValue(settingSet.length)-1]+": "+ charaSet[getRandomValue(charaSet.length)-1]+" and  "+charaSet[getRandomValue(charaSet.length)-1]+ " "+ actionSet[getRandomValue(actionSet.length)-1];
   }
   return "At least one prompt section is empty";
 }
@@ -82,8 +82,8 @@ client.on('message', (receivedMessage) => {
         var args = receivedMessage.content.substring("h.".length).split(" ");
         switch(args[0]){
           case "prompt":
-            //receivedMessage.channel.send(getPrompt());
-            /*if(args.length>1){
+            receivedMessage.channel.send(getPrompt());
+            if(args.length>1){
               switch(args[1]){
                 case "add": 
                   receivedMessage.channel.send("What would you like to add? \nCharacter \nAction \nSetting \n");
@@ -92,7 +92,7 @@ client.on('message', (receivedMessage) => {
                   receivedMessage.channel.send("What would you like to add? \nCharacter \nAction \nSetting \nAll \n");
                   break;
               }
-            }*/
+            }
             break;
           case "sing": receivedMessage.channel.send("wake up in the morning ~♪\nthere's a brand new day ahead~♫\nthe sun is bright and the clouds smile down ~♩\nand all your friends are dead ~♬ ");
             break;
