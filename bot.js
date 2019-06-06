@@ -79,10 +79,10 @@ client.on('message', (receivedMessage) => {
        
      //}
     if ((receivedMessage.content.toLowerCase().startsWith("h."))) { 
-        var args = message.content.substring("h.".length).split(".");
+        var args = receivedMessage.content.substring("h.".length).split(".");
         switch(args[0]){
           case "prompt":
-            /*receivedMessage.channel.send(getPrompt());
+            receivedMessage.channel.send(getPrompt());
             if(args.length>1){
               switch(args[1]){
                 case "add": 
@@ -92,7 +92,7 @@ client.on('message', (receivedMessage) => {
                   receivedMessage.channel.send("What would you like to add? \nCharacter \nAction \nSetting \nAll \n");
                   break;
               }
-            }*/
+            }
             break;
           case "sing": receivedMessage.channel.send("wake up in the morning ~♪\nthere's a brand new day ahead~♫\nthe sun is bright and the clouds smile down ~♩\nand all your friends are dead ~♬ ");
             break;
