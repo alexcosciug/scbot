@@ -83,7 +83,7 @@ client.on('message', (receivedMessage) => {
         switch(args[0]){
           case "prompt":
             receivedMessage.channel.send(getPrompt());
-            if(args.length>2){
+           /*if(args.length>2){
               switch(args[1]){
                 case "add": 
                   //receivedMessage.channel.send("What would you like to add? \nCharacter \nAction \nSetting \n");
@@ -134,7 +134,7 @@ client.on('message', (receivedMessage) => {
                   }
                   
         });
-                  break;
+                  break;*/
                 /*case "clear":
                   //receivedMessage.channel.send("What would you like to add? \nCharacter \nAction \nSetting \nAll \n");
                   switch(args[2]){
