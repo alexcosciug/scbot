@@ -135,7 +135,7 @@ client.on('message', (receivedMessage) => {
                   
         });
                   break;
-                case "clear":
+                /*case "clear":
                   //receivedMessage.channel.send("What would you like to add? \nCharacter \nAction \nSetting \nAll \n");
                   switch(args[2]){
                     case "character": 
@@ -191,7 +191,7 @@ client.on('message', (receivedMessage) => {
         
           case "info": receivedMessage.channel.send(" Available commands: \n- sing \n\n Reaction words: \nfriend, friendos, friends\n police, dream\n moustache, brother, koumei\n music, guitar\n heart, traitor\n zero \n TBC");
             break;
-            
+            */
           default: break;
         }
     }
