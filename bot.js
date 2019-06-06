@@ -83,13 +83,105 @@ client.on('message', (receivedMessage) => {
         switch(args[0]){
           case "prompt":
             receivedMessage.channel.send(getPrompt());
-            if(args.length>1){
+            if(args.length>2){
               switch(args[1]){
                 case "add": 
-                  receivedMessage.channel.send("What would you like to add? \nCharacter \nAction \nSetting \n");
+                  //receivedMessage.channel.send("What would you like to add? \nCharacter \nAction \nSetting \n");
+                  switch(args[2]){
+                    case "character": 
+                          .then(() => {
+                          receivedMessage.channel.awaitMessages(response => response.content, {
+                            max: 1,
+                            time: 30000,
+                            errors: ['time'],
+                          })
+                          .then((collected) => {
+                            AddChara(response.content);
+                          })
+                          .catch(() => {
+                          // Do something with error 
+                          }); 
+                    break;
+                    case "action": 
+                          .then(() => {
+                          receivedMessage.channel.awaitMessages(response => response.content, {
+                            max: 1,
+                            time: 30000,
+                            errors: ['time'],
+                          })
+                          .then((collected) => {
+                            addAction(response.content);
+                          })
+                          .catch(() => {
+                          // Do something with error 
+                          }); 
+                      break;
+                    case "setting":
+                           .then(() => {
+                          receivedMessage.channel.awaitMessages(response => response.content, {
+                            max: 1,
+                            time: 30000,
+                            errors: ['time'],
+                          })
+                          .then((collected) => {
+                              addSetting(response.content);
+                          })
+                          .catch(() => {
+                          // Do something with error 
+                          });
+                     break;
+                    default: break;
+                  }
+                  
+        });
                   break;
                 case "clear":
-                  receivedMessage.channel.send("What would you like to add? \nCharacter \nAction \nSetting \nAll \n");
+                  //receivedMessage.channel.send("What would you like to add? \nCharacter \nAction \nSetting \nAll \n");
+                  switch(args[2]){
+                    case "character": 
+                          .then(() => {
+                          receivedMessage.channel.awaitMessages(response => response.content, {
+                            max: 1,
+                            time: 30000,
+                            errors: ['time'],
+                          })
+                          .then((collected) => {
+                            charaSet=[]
+                          })
+                          .catch(() => {
+                          // Do something with error 
+                          }); 
+                    break;
+                    case "action": 
+                          .then(() => {
+                          receivedMessage.channel.awaitMessages(response => response.content, {
+                            max: 1,
+                            time: 30000,
+                            errors: ['time'],
+                          })
+                          .then((collected) => {
+                            actionSet=[]
+                          })
+                          .catch(() => {
+                          // Do something with error 
+                          }); 
+                      break;
+                    case "setting":
+                           .then(() => {
+                          receivedMessage.channel.awaitMessages(response => response.content, {
+                            max: 1,
+                            time: 30000,
+                            errors: ['time'],
+                          })
+                          .then((collected) => {
+                              settingSet=[]
+                          })
+                          .catch(() => {
+                          // Do something with error 
+                          });
+                     break;
+                    default: break;
+                  }
                   break;
               }
             }
