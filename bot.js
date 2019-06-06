@@ -80,7 +80,7 @@ client.on('message', (receivedMessage) => {
      //}
     if ((receivedMessage.content.toLowerCase().startsWith("h."))) { 
         var args = message.content.substring("h.".length).split(".");
-        switch(args[0]){
+        /*switch(args[0]){
           case "prompt":
             receivedMessage.channel.send(getPrompt());
             if(args.length>1){
@@ -101,7 +101,7 @@ client.on('message', (receivedMessage) => {
             break;
             
           default: break;
-        }
+        }*/
     }
      
     if ((receivedMessage.content.toLowerCase().includes("cat"))) { 
